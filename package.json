@@ -4,12 +4,16 @@
   "description": "List view presentation of search result.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel/register tests",
-    "test:junit": "mocha -R mocha-jenkins-reporter --compilers js:babel/register tests",
+    "test": "karma start --single-run=true",
+    "test:watch": "karma start",
     "lint:checkstyle": "eslint ./  -o report.xml -f checkstyle",
     "lint": "eslint ./",
     "watch:babel": "babel ./src --watch -d dist",
     "watch:bundle": "webpack --progress --colors --watch -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DBCDK/dbc-react-resultlistview"
   },
   "author": "ux-dbc",
   "license": "ISC",
@@ -17,21 +21,30 @@
     "babel": "^5.4.7",
     "babel-core": "^5.4.7",
     "babel-loader": "^5.1.3",
+    "chai": "^2.3.0",
     "css-loader": "^0.14.3",
     "eslint": "^0.21.0",
     "eslint-loader": "^0.11.2",
     "eslint-plugin-react": "^2.2.0",
     "extract-text-webpack-plugin": "^0.8.1",
+    "karma": "^0.12.35",
+    "karma-cli": "0.0.4",
+    "karma-junit-reporter": "^0.2.2",
+    "karma-mocha": "^0.1.10",
+    "karma-mocha-reporter": "^1.0.2",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-webpack": "^1.5.1",
     "loader": "^0.1.6",
     "mocha": "^2.2.4",
     "mocha-jenkins-reporter": "^0.1.8",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.1.2",
+    "phantomjs": "^1.9.17",
     "sass-loader": "^1.0.2",
     "webpack": "^1.9.10"
   },
   "dependencies": {
-    "react": "^0.13.3",
-    "lodash": "3.9.3"
+    "lodash": "3.9.3",
+    "react": "^0.13.3"
   }
 }

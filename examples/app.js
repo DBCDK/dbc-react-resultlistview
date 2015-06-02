@@ -1,5 +1,5 @@
 import React from 'react';
-import Result from '../src/components/DisplayResult.component.js';
+import Result from '../src/components/DisplayResult/DisplayResult.component.js';
 
 let data = {}
 data.result = [
