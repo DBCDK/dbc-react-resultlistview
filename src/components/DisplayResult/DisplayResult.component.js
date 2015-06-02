@@ -33,8 +33,10 @@ const ResultDisplay = React.createClass({
     		worksInRows = 4;
     	}
     	let rows = Lodash.chunk(this.props.result, worksInRows);
+    	let i = 0;
     	const workRow = rows.map((work)=>{
-    		return (<WorkRow work={work}/>);
+    		i++;
+    		return (<WorkRow key={i} work={work}/>);
     	});
   		return (
             <div className='container' ref="container">

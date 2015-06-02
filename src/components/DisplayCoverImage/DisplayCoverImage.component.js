@@ -20,15 +20,20 @@ const CoverImageDisplay = React.createClass({
 const CoverImage = React.createClass({
     render() {
         let {title, identifiers, worktype, cover} = this.props;
+		let bibl_identifier = "";
 
-		let identifier = identifiers[0];
+		if (identifiers != undefined) {
+			bibl_identifier = identifiers[0];
+		} else {
+			return <div></div>;
+		}
 
 		if (cover != -1) {
-			identifier = identifiers[cover];
+			bibl_identifier = identifiers[cover];
 		}
 		
-		identifier = identifier.replace("870970-basis:", "");
-		let url = "../src/static/covers/" + identifier + ".jpg";
+		bibl_identifier = bibl_identifier.replace("870970-basis:", "");
+		let url = "../src/static/covers/" + bibl_identifier + ".jpg";
 		
 		if (cover == -1) {
 			url = "../src/static/covers/no-cover-image-" + worktype + ".png";

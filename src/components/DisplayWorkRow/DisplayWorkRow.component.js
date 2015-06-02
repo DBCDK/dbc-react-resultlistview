@@ -10,9 +10,10 @@ import BibliographicData from './../DisplayBibliographicData/DisplayBibliographi
  
 const WorkRow = React.createClass({
     render() {
-    	console.log(this.props.work);
+    	let i = 0;
     	const work = this.props.work.map((work)=>{
-    		return (<BibliographicData title={work.title} identifiers={work.identifiers} worktype={work.worktype} cover={work.cover} />);
+    		i++;
+    		return (<BibliographicData key={i} title={work.title} identifiers={work.identifiers} worktype={work.worktype} cover={work.cover} />);
     	});
 		return (
 			<div className="row">
