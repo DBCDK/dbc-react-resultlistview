@@ -1,49 +1,50 @@
-"use strict";
+'use strict';
 import React from 'react';
-import Lodash from 'lodash';
-
-// Import styling
-import './DisplayResult.scss';
-
+import {chunk} from 'lodash';
 import WorkRow from './../DisplayWorkRow/DisplayWorkRow.component.js';
+
+function _getNumberOfRows(windowWidth) {
+  let rows = 2;
+  if (windowWidth < 604) {
+    rows = 2;
+  } else if (windowWidth < 1024) {
+    rows = 3;
+  } else {
+    rows = 4;
+  }
+  return rows;
+}
 
 /**
  * Main component for presenting search result
  */
 const ResultDisplay = React.createClass({
-	getInitialState: function() {
-    	return {windowWidth: window.innerWidth};
-  	},
-  	handleResize: function(e) {
-    	this.setState({windowWidth: window.innerWidth});
-  	},
-  	componentDidMount() {
-  		window.addEventListener('resize', this.handleResize);
-	},
-	componentWillUnmount: function() {
-    	window.removeEventListener('resize', this.handleResize);
-  	},
-  	render() {
-  		let worksInRows = 2;
-        if (this.state.windowWidth < 604) {
-    		worksInRows = 2;
-    	} else if (this.state.windowWidth < 1024) {
-    		worksInRows = 3;
-    	} else {
-    		worksInRows = 4;
-    	}
-    	let rows = Lodash.chunk(this.props.result, worksInRows);
-    	let i = 0;
-    	const workRow = rows.map((work)=>{
-    		i++;
-    		return (<WorkRow key={i} work={work}/>);
-    	});
-  		return (
-            <div className='container' ref="container">
-            	{workRow}
-            </div>
-        );
-    }
+  getInitialState() {
+    return {windowWidth: window.innerWidth};
+  },
+  handleResize() {
+    this.setState({windowWidth: window.innerWidth});
+  },
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize);
+  },
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  },
+  propTypes: {
+    result: React.PropTypes.array
+  },
+  render() {
+    let worksInRows = _getNumberOfRows(this.state.windowWidth);
+    let rows = chunk(this.props.result, worksInRows);
+    const workRow = rows.map((work, i) => {
+      return (<WorkRow key={i} work={work}/>);
+    });
+    return (
+      <div className='container' ref="container">
+        {workRow}
+      </div>);
+  }
 });
 
 export default ResultDisplay;

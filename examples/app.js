@@ -1,7 +1,7 @@
 import React from 'react';
 import Result from '../src/components/DisplayResult/DisplayResult.component.js';
 
-let data = {}
+let data = {};
 data.result = [
   	{
 		"identifiers": ["870970-basis:22629344", "870970-basis:22252852", "870970-basis:29317038", "870970-basis:25194853", "870970-basis:24168638", "870970-basis:23195151", "870970-basis:27638708", "870970-basis:22513354"],
