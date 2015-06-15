@@ -1,5 +1,5 @@
 'use strict';
 
-import WorkRow from './components/DisplayWorkRow/DisplayWorkRow.component.js';
+import ResultDisplay from './components/DisplayWorkRow/DisplayResult.component.js';
 
-export {WorkRow};
+export {ResultDisplay};
