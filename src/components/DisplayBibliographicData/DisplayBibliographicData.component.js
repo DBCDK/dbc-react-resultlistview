@@ -25,6 +25,9 @@ function _getIcon(worktype) {
       icon.push('fa-book');
       break;
   }
+
+  return icon;
+
 }
 
 const BibliographicData = React.createClass({
@@ -36,11 +39,11 @@ const BibliographicData = React.createClass({
   },
   render() {
     const {title, worktype} = this.props;
-    const icon = _getIcon(worktype);
+    let icon = _getIcon(worktype);
     return (
       <div className="work small-6 medium-4 large-3">
         <CoverImage {...this.props} />
-        <i className={icon}></i>
+        <i className={icon.join(' ')}></i>
           <div className="title">{title}</div>
       </div>);
   }

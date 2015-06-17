@@ -36,6 +36,8 @@ function _getIcon(worktype) {
       icon.push('fa-book');
       break;
   }
+
+  return icon;
 }
 
 var BibliographicData = _react2['default'].createClass({
@@ -57,7 +59,7 @@ var BibliographicData = _react2['default'].createClass({
       'div',
       { className: 'work small-6 medium-4 large-3' },
       _react2['default'].createElement(_DisplayCoverImageDisplayCoverImageComponentJs2['default'], this.props),
-      _react2['default'].createElement('i', { className: icon }),
+      _react2['default'].createElement('i', { className: icon.join(' ') }),
       _react2['default'].createElement(
         'div',
         { className: 'title' },
