@@ -41,7 +41,7 @@ const ResultDisplay = React.createClass({
       return (<WorkRow key={i} work={work}/>);
     });
     return (
-      <div className='container' ref="container">
+      <div className='container'>
         {workRow}
       </div>);
   }

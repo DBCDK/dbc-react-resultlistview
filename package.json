@@ -2,7 +2,7 @@
   "name": "dbc-react-resultlistview",
   "version": "0.0.1",
   "description": "List view presentation of search result.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "karma start --single-run=true",
     "test:watch": "karma start",
