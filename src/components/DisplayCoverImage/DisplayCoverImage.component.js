@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+import {isArray} from 'lodash';
 
 /**
  * Get image with size
@@ -22,20 +23,18 @@ export default React.createClass({
   propTypes: {
     title: React.PropTypes.string,
     identifiers: React.PropTypes.array.isRequired,
-    worktype: React.PropTypes.string,
-    cover: React.PropTypes.any
+    workType: React.PropTypes.string,
+    noCoverImage : React.PropTypes.string,
+    cover: React.PropTypes.object,
+    size: React.PropTypes.string
   },
 
   render() {
-    let {title, identifiers, workType, cover} = this.props;
-    let url;
+    let {title, workType, cover, noCoverImage, size} = this.props;
+    let url = noCoverImage || `/covers/no-cover-image-${workType}.png`;
     if (cover && cover.images.length) {
-      url = _getImage(cover.images, 'detail_500');
+      url = _getImage(cover.images, size || 'detail_500');
     }
-    else {
-      url = '/covers/no-cover-image-' + workType + '.png';
-    }
-
     return (
       <div className="cover-image">
         <img src={url} alt={title}/>

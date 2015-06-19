@@ -9,6 +9,8 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _lodash = require('lodash');
+
 /**
  * Get image with size
  *
@@ -34,24 +36,24 @@ exports['default'] = _react2['default'].createClass({
   propTypes: {
     title: _react2['default'].PropTypes.string,
     identifiers: _react2['default'].PropTypes.array.isRequired,
-    worktype: _react2['default'].PropTypes.string,
-    cover: _react2['default'].PropTypes.any
+    workType: _react2['default'].PropTypes.string,
+    noCoverImage: _react2['default'].PropTypes.string,
+    cover: _react2['default'].PropTypes.object,
+    size: _react2['default'].PropTypes.string
   },
 
   render: function render() {
     var _props = this.props;
     var title = _props.title;
-    var identifiers = _props.identifiers;
     var workType = _props.workType;
     var cover = _props.cover;
+    var noCoverImage = _props.noCoverImage;
+    var size = _props.size;
 
-    var url = undefined;
+    var url = noCoverImage || '/covers/no-cover-image-' + workType + '.png';
     if (cover && cover.images.length) {
-      url = _getImage(cover.images, 'detail_500');
-    } else {
-      url = '/covers/no-cover-image-' + workType + '.png';
+      url = _getImage(cover.images, size || 'detail_500');
     }
-
     return _react2['default'].createElement(
       'div',
       { className: 'cover-image' },

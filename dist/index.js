@@ -10,4 +10,9 @@ var _componentsDisplayResultDisplayResultComponentJs = require('./components/Dis
 
 var _componentsDisplayResultDisplayResultComponentJs2 = _interopRequireDefault(_componentsDisplayResultDisplayResultComponentJs);
 
+var _componentsDisplayCoverImageDisplayCoverImageComponentJs = require('./components/DisplayCoverImage/DisplayCoverImage.component.js');
+
+var _componentsDisplayCoverImageDisplayCoverImageComponentJs2 = _interopRequireDefault(_componentsDisplayCoverImageDisplayCoverImageComponentJs);
+
 exports.ResultDisplay = _componentsDisplayResultDisplayResultComponentJs2['default'];
+exports.CoverImage = _componentsDisplayCoverImageDisplayCoverImageComponentJs2['default'];
