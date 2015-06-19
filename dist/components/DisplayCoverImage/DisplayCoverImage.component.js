@@ -33,12 +33,12 @@ var CoverImage = _react2['default'].createClass({
     var url = '';
     if (identifiers.length > 0) {
       bibl_identifier = identifiers[0];
-      if (cover !== -1) {
+      if (cover) {
         bibl_identifier = identifiers[cover];
       }
       bibl_identifier = bibl_identifier.replace('870970-basis:', '');
       url = '../src/static/covers/' + bibl_identifier + '.jpg';
-      if (cover === -1) {
+      if (!cover) {
         url = '../src/static/covers/no-cover-image-' + worktype + '.png';
       }
     } else {

@@ -56,7 +56,7 @@ var ResultDisplay = _react2['default'].createClass({
     });
     return _react2['default'].createElement(
       'div',
-      { className: 'container', ref: 'container' },
+      { className: 'container' },
       workRow
     );
   }
