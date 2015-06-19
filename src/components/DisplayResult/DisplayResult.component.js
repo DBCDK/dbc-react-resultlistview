@@ -32,13 +32,14 @@ const ResultDisplay = React.createClass({
     window.removeEventListener('resize', this.handleResize);
   },
   propTypes: {
-    result: React.PropTypes.array
+    result: React.PropTypes.array,
+    coverImages: React.PropTypes.object
   },
   render() {
     let worksInRows = _getNumberOfRows(this.state.windowWidth);
     let rows = chunk(this.props.result, worksInRows);
     const workRow = rows.map((work, i) => {
-      return (<WorkRow key={i} work={work}/>);
+      return (<WorkRow key={i} work={work} coverImages={this.props.coverImages} />);
     });
     return (
       <div className='container'>

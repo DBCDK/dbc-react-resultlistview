@@ -46,15 +46,15 @@ var BibliographicData = _react2['default'].createClass({
   propTypes: {
     title: _react2['default'].PropTypes.string,
     identifiers: _react2['default'].PropTypes.array.isRequired,
-    worktype: _react2['default'].PropTypes.string,
+    workType: _react2['default'].PropTypes.string,
     cover: _react2['default'].PropTypes.number
   },
   render: function render() {
     var _props = this.props;
     var title = _props.title;
-    var worktype = _props.worktype;
+    var workType = _props.workType;
 
-    var icon = _getIcon(worktype);
+    var icon = _getIcon(workType);
     return _react2['default'].createElement(
       'div',
       { className: 'work small-6 medium-4 large-3' },

@@ -46,13 +46,16 @@ var ResultDisplay = _react2['default'].createClass({
     window.removeEventListener('resize', this.handleResize);
   },
   propTypes: {
-    result: _react2['default'].PropTypes.array
+    result: _react2['default'].PropTypes.array,
+    coverImages: _react2['default'].PropTypes.object
   },
   render: function render() {
+    var _this = this;
+
     var worksInRows = _getNumberOfRows(this.state.windowWidth);
     var rows = (0, _lodash.chunk)(this.props.result, worksInRows);
     var workRow = rows.map(function (work, i) {
-      return _react2['default'].createElement(_DisplayWorkRowDisplayWorkRowComponentJs2['default'], { key: i, work: work });
+      return _react2['default'].createElement(_DisplayWorkRowDisplayWorkRowComponentJs2['default'], { key: i, work: work, coverImages: _this.props.coverImages });
     });
     return _react2['default'].createElement(
       'div',

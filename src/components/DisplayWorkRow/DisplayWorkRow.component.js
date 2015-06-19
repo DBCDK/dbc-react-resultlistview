@@ -5,14 +5,15 @@ import BibliographicData from './../DisplayBibliographicData/DisplayBibliographi
 /**
 * Component for creating presentation a row of works
 */
-
 const WorkRow = React.createClass({
   propTypes: {
-    work: React.PropTypes.array.isRequired
+    work: React.PropTypes.array.isRequired,
+    coverImages: React.PropTypes.object
   },
   render() {
     const workElement = this.props.work.map((work, i) => {
-      return (<BibliographicData key={i} title={work.title} identifiers={work.identifiers} worktype={work.worktype} cover={work.cover} />);
+      let covers = this.props.coverImages.get(work.identifiers[0]);
+      return (<BibliographicData key={i} title={work.title} identifiers={work.identifiers} workType={work.workType} cover={covers} />);
     });
     return (
       <div className="row">

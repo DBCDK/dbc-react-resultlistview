@@ -2,38 +2,43 @@
 import React from 'react';
 
 /**
-* Main component for creating presentation of a cover image
-*/
+ * Get image with size
+ *
+ * Runs though an array of images and returns the image with a certain size
+ *
+ * @param {array} images
+ * @param {string} size
+ * @returns {string}
+ * @private
+ */
+function _getImage(images, size) {
+  return images.filter((image) => image.size === size).pop().url;
+}
 
-const CoverImage = React.createClass({
+/**
+ * Main component for creating presentation of a cover image
+ */
+export default React.createClass({
   propTypes: {
     title: React.PropTypes.string,
     identifiers: React.PropTypes.array.isRequired,
     worktype: React.PropTypes.string,
-    cover: React.PropTypes.number
+    cover: React.PropTypes.any
   },
+
   render() {
-    let {title, identifiers, worktype, cover} = this.props;
-    let bibl_identifier = '';
-    let url = '';
-    if (identifiers.length > 0) {
-      bibl_identifier = identifiers[0];
-      if (cover) {
-        bibl_identifier = identifiers[cover];
-      }
-      bibl_identifier = bibl_identifier.replace('870970-basis:', '');
-      url = '../src/static/covers/' + bibl_identifier + '.jpg';
-      if (!cover) {
-        url = '../src/static/covers/no-cover-image-' + worktype + '.png';
-      }
-    } else {
-      bibl_identifier = '';
+    let {title, identifiers, workType, cover} = this.props;
+    let url;
+    if (cover && cover.images.length) {
+      url = _getImage(cover.images, 'detail_500');
     }
+    else {
+      url = '/covers/no-cover-image-' + workType + '.png';
+    }
+
     return (
       <div className="cover-image">
-        <img src={url} alt={title} ref={cover}/>
+        <img src={url} alt={title}/>
       </div>);
   }
 });
-
-export default CoverImage;

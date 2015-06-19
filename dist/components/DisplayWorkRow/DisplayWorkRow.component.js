@@ -16,16 +16,19 @@ var _DisplayBibliographicDataDisplayBibliographicDataComponentJs2 = _interopRequ
 /**
 * Component for creating presentation a row of works
 */
-
 var WorkRow = _react2['default'].createClass({
   displayName: 'WorkRow',
 
   propTypes: {
-    work: _react2['default'].PropTypes.array.isRequired
+    work: _react2['default'].PropTypes.array.isRequired,
+    coverImages: _react2['default'].PropTypes.object
   },
   render: function render() {
+    var _this = this;
+
     var workElement = this.props.work.map(function (work, i) {
-      return _react2['default'].createElement(_DisplayBibliographicDataDisplayBibliographicDataComponentJs2['default'], { key: i, title: work.title, identifiers: work.identifiers, worktype: work.worktype, cover: work.cover });
+      var covers = _this.props.coverImages.get(work.identifiers[0]);
+      return _react2['default'].createElement(_DisplayBibliographicDataDisplayBibliographicDataComponentJs2['default'], { key: i, title: work.title, identifiers: work.identifiers, workType: work.workType, cover: covers });
     });
     return _react2['default'].createElement(
       'div',

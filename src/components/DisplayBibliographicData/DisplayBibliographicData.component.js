@@ -34,12 +34,12 @@ const BibliographicData = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
     identifiers: React.PropTypes.array.isRequired,
-    worktype: React.PropTypes.string,
+    workType: React.PropTypes.string,
     cover: React.PropTypes.number
   },
   render() {
-    const {title, worktype} = this.props;
-    let icon = _getIcon(worktype);
+    const {title, workType} = this.props;
+    let icon = _getIcon(workType);
     return (
       <div className="work small-6 medium-4 large-3">
         <CoverImage {...this.props} />

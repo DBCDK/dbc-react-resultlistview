@@ -10,47 +10,53 @@ var _react = require('react');
 var _react2 = _interopRequireDefault(_react);
 
 /**
-* Main component for creating presentation of a cover image
-*/
+ * Get image with size
+ *
+ * Runs though an array of images and returns the image with a certain size
+ *
+ * @param {array} images
+ * @param {string} size
+ * @returns {string}
+ * @private
+ */
+function _getImage(images, size) {
+  return images.filter(function (image) {
+    return image.size === size;
+  }).pop().url;
+}
 
-var CoverImage = _react2['default'].createClass({
-  displayName: 'CoverImage',
+/**
+ * Main component for creating presentation of a cover image
+ */
+exports['default'] = _react2['default'].createClass({
+  displayName: 'DisplayCoverImage.component',
 
   propTypes: {
     title: _react2['default'].PropTypes.string,
     identifiers: _react2['default'].PropTypes.array.isRequired,
     worktype: _react2['default'].PropTypes.string,
-    cover: _react2['default'].PropTypes.number
+    cover: _react2['default'].PropTypes.any
   },
+
   render: function render() {
     var _props = this.props;
     var title = _props.title;
     var identifiers = _props.identifiers;
-    var worktype = _props.worktype;
+    var workType = _props.workType;
     var cover = _props.cover;
 
-    var bibl_identifier = '';
-    var url = '';
-    if (identifiers.length > 0) {
-      bibl_identifier = identifiers[0];
-      if (cover) {
-        bibl_identifier = identifiers[cover];
-      }
-      bibl_identifier = bibl_identifier.replace('870970-basis:', '');
-      url = '../src/static/covers/' + bibl_identifier + '.jpg';
-      if (!cover) {
-        url = '../src/static/covers/no-cover-image-' + worktype + '.png';
-      }
+    var url = undefined;
+    if (cover && cover.images.length) {
+      url = _getImage(cover.images, 'detail_500');
     } else {
-      bibl_identifier = '';
+      url = '/covers/no-cover-image-' + workType + '.png';
     }
+
     return _react2['default'].createElement(
       'div',
       { className: 'cover-image' },
-      _react2['default'].createElement('img', { src: url, alt: title, ref: cover })
+      _react2['default'].createElement('img', { src: url, alt: title })
     );
   }
 });
-
-exports['default'] = CoverImage;
 module.exports = exports['default'];
