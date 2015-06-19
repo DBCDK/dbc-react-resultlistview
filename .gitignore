@@ -1,3 +1,5 @@
 node_modules
 examples/public
 output
+.DS_Store
+npm-debug.log
