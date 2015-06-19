@@ -1,5 +1,5 @@
 'use strict';
 
-var ResultDisplay = require('./components/DisplayWorkRow/DisplayResult.component.js');
+var ResultDisplay = require('./dist/components/DisplayWorkRow/DisplayWorkRow.component');
 
-export {ResultDisplay};
+module.export = ResultDisplay;
