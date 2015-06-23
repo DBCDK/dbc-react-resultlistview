@@ -23,17 +23,20 @@ function _getIcon(worktype) {
     case 'book':
       icon.push('fa-book');
       break;
+    case 'audiobook':
+      icon.push('fa-book');
+      break;
     case 'game':
       icon.push('fa-gamepad');
       break;
     case 'movie':
-      icon.push('fa-movie');
+      icon.push('fa-film');
       break;
     case 'music':
       icon.push('fa-music');
       break;
     default:
-      icon.push('fa-book');
+      icon.push('fa-question');
       break;
   }
 
