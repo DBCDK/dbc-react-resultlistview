@@ -23,6 +23,9 @@ function _getIcon(worktype) {
     case 'book':
       icon.push('fa-book');
       break;
+    case 'audiobook':
+      icon.push('fa-book');
+      break;
     case 'game':
       icon.push('fa-gamepad');
       break;
