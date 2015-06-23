@@ -60,7 +60,7 @@ var ResultDisplay = _react2['default'].createClass({
     return _react2['default'].createElement(
       'div',
       { className: 'container' },
-      workRow
+      this.props.result.length && workRow || this.props.children
     );
   }
 });

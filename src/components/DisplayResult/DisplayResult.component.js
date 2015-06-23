@@ -43,7 +43,7 @@ const ResultDisplay = React.createClass({
     });
     return (
       <div className='container'>
-        {workRow}
+        {this.props.result.length && workRow || this.props.children}
       </div>);
   }
 });
