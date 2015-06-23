@@ -16,7 +16,7 @@ function _getIcon(worktype) {
       icon.push('fa-gamepad');
       break;
     case 'movie':
-      icon.push('fa-movie');
+      icon.push('fa-film');
       break;
     case 'music':
       icon.push('fa-music');
