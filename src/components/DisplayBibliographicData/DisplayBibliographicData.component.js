@@ -22,7 +22,7 @@ function _getIcon(worktype) {
       icon.push('fa-music');
       break;
     default:
-      icon.push('fa-book');
+      icon.push('fa-question');
       break;
   }
 
