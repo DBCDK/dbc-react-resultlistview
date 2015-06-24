@@ -1,6 +1,5 @@
 'use strict';
 import React from 'react';
-import {isArray} from 'lodash';
 
 /**
  * Get image with size
@@ -24,7 +23,7 @@ export default React.createClass({
     title: React.PropTypes.string,
     identifiers: React.PropTypes.array.isRequired,
     workType: React.PropTypes.string,
-    noCoverImage : React.PropTypes.string,
+    noCoverImage: React.PropTypes.string,
     cover: React.PropTypes.object,
     size: React.PropTypes.string
   },

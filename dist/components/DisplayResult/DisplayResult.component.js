@@ -15,6 +15,10 @@ var _DisplayWorkRowDisplayWorkRowComponentJs = require('./../DisplayWorkRow/Disp
 
 var _DisplayWorkRowDisplayWorkRowComponentJs2 = _interopRequireDefault(_DisplayWorkRowDisplayWorkRowComponentJs);
 
+var _LoadMoreComponentJs = require('./LoadMore.component.js');
+
+var _LoadMoreComponentJs2 = _interopRequireDefault(_LoadMoreComponentJs);
+
 /**
  * Method that checks of component is being rendered on server or client
  * @returns {boolean}
@@ -59,20 +63,27 @@ var ResultDisplay = _react2['default'].createClass({
   },
   propTypes: {
     result: _react2['default'].PropTypes.array,
-    coverImages: _react2['default'].PropTypes.object
+    coverImages: _react2['default'].PropTypes.object,
+    more: _react2['default'].PropTypes.bool,
+    loadmore: _react2['default'].PropTypes.func
   },
   render: function render() {
     var _this = this;
 
     var worksInRows = _getNumberOfRows(this.state.windowWidth);
     var rows = (0, _lodash.chunk)(this.props.result, worksInRows);
+    var loadMore = undefined;
+    if (this.props.more === 'true') {
+      loadMore = _react2['default'].createElement(_LoadMoreComponentJs2['default'], { button: 'Se flere', update: this.props.loadmore });
+    }
     var workRow = rows.map(function (work, i) {
       return _react2['default'].createElement(_DisplayWorkRowDisplayWorkRowComponentJs2['default'], { key: i, work: work, coverImages: _this.props.coverImages });
     });
     return _react2['default'].createElement(
       'div',
       { className: 'container' },
-      this.props.result.length && workRow || this.props.children
+      this.props.result.length && workRow || this.props.children,
+      loadMore
     );
   }
 });

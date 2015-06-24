@@ -2,6 +2,7 @@
 import React from 'react';
 import {chunk} from 'lodash';
 import WorkRow from './../DisplayWorkRow/DisplayWorkRow.component.js';
+import LoadMore from './LoadMore.component.js';
 
 /**
  * Method that checks of component is being rendered on server or client
@@ -46,17 +47,24 @@ const ResultDisplay = React.createClass({
   },
   propTypes: {
     result: React.PropTypes.array,
-    coverImages: React.PropTypes.object
+    coverImages: React.PropTypes.object,
+    more: React.PropTypes.bool,
+    loadmore: React.PropTypes.func
   },
   render() {
     let worksInRows = _getNumberOfRows(this.state.windowWidth);
     let rows = chunk(this.props.result, worksInRows);
+    let loadMore;
+    if (this.props.more === 'true') {
+      loadMore = <LoadMore button={'Se flere'} update={this.props.loadmore} />;
+    }
     const workRow = rows.map((work, i) => {
       return (<WorkRow key={i} work={work} coverImages={this.props.coverImages} />);
     });
     return (
       <div className='container'>
         {this.props.result.length && workRow || this.props.children}
+        {loadMore}
       </div>);
   }
 });
