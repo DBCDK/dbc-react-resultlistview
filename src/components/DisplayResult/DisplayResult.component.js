@@ -3,6 +3,14 @@ import React from 'react';
 import {chunk} from 'lodash';
 import WorkRow from './../DisplayWorkRow/DisplayWorkRow.component.js';
 
+/**
+ * Method that checks of component is being rendered on server or client
+ * @returns {boolean}
+ */
+function isClient() {
+  return (typeof window !== 'undefined');
+}
+
 function _getNumberOfRows(windowWidth) {
   let rows = 2;
   if (windowWidth < 604) {
@@ -20,16 +28,21 @@ function _getNumberOfRows(windowWidth) {
  */
 const ResultDisplay = React.createClass({
   getInitialState() {
-    return {windowWidth: window.innerWidth};
+    return {windowWidth: isClient() && window.innerWidth};
   },
   handleResize() {
-    this.setState({windowWidth: window.innerWidth});
+    this.setState({windowWidth: isClient() && window.innerWidth});
   },
   componentDidMount() {
-    window.addEventListener('resize', this.handleResize);
+    if (isClient()) {
+      window.addEventListener('resize', this.handleResize);
+    }
   },
   componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
+    if (isClient()) {
+      window.removeEventListener('resize', this.handleResize);
+    }
+
   },
   propTypes: {
     result: React.PropTypes.array,

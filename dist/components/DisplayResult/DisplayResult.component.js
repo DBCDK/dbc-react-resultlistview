@@ -15,6 +15,14 @@ var _DisplayWorkRowDisplayWorkRowComponentJs = require('./../DisplayWorkRow/Disp
 
 var _DisplayWorkRowDisplayWorkRowComponentJs2 = _interopRequireDefault(_DisplayWorkRowDisplayWorkRowComponentJs);
 
+/**
+ * Method that checks of component is being rendered on server or client
+ * @returns {boolean}
+ */
+function isClient() {
+  return typeof window !== 'undefined';
+}
+
 function _getNumberOfRows(windowWidth) {
   var rows = 2;
   if (windowWidth < 604) {
@@ -34,16 +42,20 @@ var ResultDisplay = _react2['default'].createClass({
   displayName: 'ResultDisplay',
 
   getInitialState: function getInitialState() {
-    return { windowWidth: window.innerWidth };
+    return { windowWidth: isClient() && window.innerWidth };
   },
   handleResize: function handleResize() {
-    this.setState({ windowWidth: window.innerWidth });
+    this.setState({ windowWidth: isClient() && window.innerWidth });
   },
   componentDidMount: function componentDidMount() {
-    window.addEventListener('resize', this.handleResize);
+    if (isClient()) {
+      window.addEventListener('resize', this.handleResize);
+    }
   },
   componentWillUnmount: function componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
+    if (isClient()) {
+      window.removeEventListener('resize', this.handleResize);
+    }
   },
   propTypes: {
     result: _react2['default'].PropTypes.array,
