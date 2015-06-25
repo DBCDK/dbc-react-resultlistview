@@ -37,6 +37,7 @@ export default React.createClass({
     return (
       <div className="cover-image">
         <img src={url} alt={title}/>
-      </div>);
+      </div>
+    );
   }
 });
