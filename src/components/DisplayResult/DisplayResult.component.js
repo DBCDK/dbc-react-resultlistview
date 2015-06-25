@@ -24,6 +24,11 @@ function _getNumberOfRows(windowWidth) {
   return rows;
 }
 
+function getWorksInRow(windowWidth, works) {
+  const worksInRows = _getNumberOfRows(windowWidth);
+  return chunk(works, worksInRows);
+}
+
 /**
  * Main component for presenting search result
  */
@@ -48,23 +53,21 @@ const ResultDisplay = React.createClass({
   propTypes: {
     result: React.PropTypes.array,
     coverImages: React.PropTypes.object,
-    more: React.PropTypes.bool,
-    loadmore: React.PropTypes.func
+    hasMore: React.PropTypes.bool,
+    loadMore: React.PropTypes.func
   },
   render() {
-    let worksInRows = _getNumberOfRows(this.state.windowWidth);
-    let rows = chunk(this.props.result, worksInRows);
-    let loadMore;
-    if (this.props.more === 'true') {
-      loadMore = <LoadMore button={'Se flere'} update={this.props.loadmore} />;
-    }
+    const {loader, pending, result, loadMore, coverImages} = this.props;
+    const rows = getWorksInRow(this.state.windowWidth, result);
+    const loadMoreButton = (this.props.hasMore === true) && <LoadMore button={'Se flere'} update={loadMore} />;
     const workRow = rows.map((work, i) => {
-      return (<WorkRow key={i} work={work} coverImages={this.props.coverImages} />);
+      return (<WorkRow key={i} work={work} coverImages={coverImages} />);
     });
     return (
       <div className='container'>
-        {this.props.result.length && workRow || this.props.children}
-        {loadMore}
+        {workRow}
+        {loader}
+        {loadMoreButton}
       </div>);
   }
 });

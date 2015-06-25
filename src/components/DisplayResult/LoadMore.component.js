@@ -8,20 +8,15 @@ var Loadmore = React.createClass({
   },
 
   render() {
-    let classes = ['button', 'secondary'];
+    let classes = ['search-result--loadmore', 'button', 'primary'];
     return (
-      <ul className="button-group even-2">
-        <li>
-          <a
+      <button
             key={this.props.button}
             onClick={this.props.update.bind(null, null)}
-            href="#"
             className={classes.join(' ')}
           >
             {this.props.button}
-          </a>
-        </li>
-      </ul>
+          </button>
     );
   }
 });

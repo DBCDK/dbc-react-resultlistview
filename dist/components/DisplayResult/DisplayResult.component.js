@@ -39,6 +39,11 @@ function _getNumberOfRows(windowWidth) {
   return rows;
 }
 
+function getWorksInRow(windowWidth, works) {
+  var worksInRows = _getNumberOfRows(windowWidth);
+  return (0, _lodash.chunk)(works, worksInRows);
+}
+
 /**
  * Main component for presenting search result
  */
@@ -64,26 +69,28 @@ var ResultDisplay = _react2['default'].createClass({
   propTypes: {
     result: _react2['default'].PropTypes.array,
     coverImages: _react2['default'].PropTypes.object,
-    more: _react2['default'].PropTypes.bool,
-    loadmore: _react2['default'].PropTypes.func
+    hasMore: _react2['default'].PropTypes.bool,
+    loadMore: _react2['default'].PropTypes.func
   },
   render: function render() {
-    var _this = this;
+    var _props = this.props;
+    var loader = _props.loader;
+    var pending = _props.pending;
+    var result = _props.result;
+    var loadMore = _props.loadMore;
+    var coverImages = _props.coverImages;
 
-    var worksInRows = _getNumberOfRows(this.state.windowWidth);
-    var rows = (0, _lodash.chunk)(this.props.result, worksInRows);
-    var loadMore = undefined;
-    if (this.props.more === 'true') {
-      loadMore = _react2['default'].createElement(_LoadMoreComponentJs2['default'], { button: 'Se flere', update: this.props.loadmore });
-    }
+    var rows = getWorksInRow(this.state.windowWidth, result);
+    var loadMoreButton = this.props.hasMore === true && _react2['default'].createElement(_LoadMoreComponentJs2['default'], { button: 'Se flere', update: loadMore });
     var workRow = rows.map(function (work, i) {
-      return _react2['default'].createElement(_DisplayWorkRowDisplayWorkRowComponentJs2['default'], { key: i, work: work, coverImages: _this.props.coverImages });
+      return _react2['default'].createElement(_DisplayWorkRowDisplayWorkRowComponentJs2['default'], { key: i, work: work, coverImages: coverImages });
     });
     return _react2['default'].createElement(
       'div',
       { className: 'container' },
-      this.props.result.length && workRow || this.props.children,
-      loadMore
+      workRow,
+      loader,
+      loadMoreButton
     );
   }
 });

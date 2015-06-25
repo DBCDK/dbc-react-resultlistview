@@ -18,24 +18,15 @@ var Loadmore = _react2['default'].createClass({
   },
 
   render: function render() {
-    var classes = ['button', 'secondary'];
+    var classes = ['search-result--loadmore', 'button', 'primary'];
     return _react2['default'].createElement(
-      'ul',
-      { className: 'button-group even-2' },
-      _react2['default'].createElement(
-        'li',
-        null,
-        _react2['default'].createElement(
-          'a',
-          {
-            key: this.props.button,
-            onClick: this.props.update.bind(null, null),
-            href: '#',
-            className: classes.join(' ')
-          },
-          this.props.button
-        )
-      )
+      'button',
+      {
+        key: this.props.button,
+        onClick: this.props.update.bind(null, null),
+        className: classes.join(' ')
+      },
+      this.props.button
     );
   }
 });
