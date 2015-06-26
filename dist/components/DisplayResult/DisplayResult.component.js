@@ -77,11 +77,12 @@ var ResultDisplay = _react2['default'].createClass({
     var loader = _props.loader;
     var pending = _props.pending;
     var result = _props.result;
+    var hasMore = _props.hasMore;
     var loadMore = _props.loadMore;
     var coverImages = _props.coverImages;
 
     var rows = getWorksInRow(this.state.windowWidth, result);
-    var loadMoreButton = this.props.hasMore === true && _react2['default'].createElement(_LoadMoreComponentJs2['default'], { button: 'Se flere', update: loadMore });
+    var loadMoreButton = hasMore && !pending && _react2['default'].createElement(_LoadMoreComponentJs2['default'], { button: 'Se flere', update: loadMore });
     var workRow = rows.map(function (work, i) {
       return _react2['default'].createElement(_DisplayWorkRowDisplayWorkRowComponentJs2['default'], { key: i, work: work, coverImages: coverImages });
     });

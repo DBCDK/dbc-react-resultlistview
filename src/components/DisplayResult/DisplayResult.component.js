@@ -57,9 +57,9 @@ const ResultDisplay = React.createClass({
     loadMore: React.PropTypes.func
   },
   render() {
-    const {loader, pending, result, loadMore, coverImages} = this.props;
+    const {loader, pending, result, hasMore, loadMore, coverImages} = this.props;
     const rows = getWorksInRow(this.state.windowWidth, result);
-    const loadMoreButton = (this.props.hasMore === true) && <LoadMore button={'Se flere'} update={loadMore} />;
+    const loadMoreButton = (hasMore && !pending) && <LoadMore button={'Se flere'} update={loadMore} />;
     const workRow = rows.map((work, i) => {
       return (<WorkRow key={i} work={work} coverImages={coverImages} />);
     });
