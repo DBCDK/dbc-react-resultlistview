@@ -60,6 +60,7 @@ var BibliographicData = _react2['default'].createClass({
 
     var icon = _getIcon(workType);
     var workid = 'id-' + identifiers[0];
+    var worklink = '/work?pid=' + identifiers[0];
     return _react2['default'].createElement(
       'div',
       { id: workid, 'data-work-id': identifiers[0], className: 'work small-6 medium-4 large-3' },
@@ -69,6 +70,11 @@ var BibliographicData = _react2['default'].createClass({
         'div',
         { className: 'title' },
         title
+      ),
+      _react2['default'].createElement(
+        'a',
+        { className: 'see-work', href: worklink },
+        'Se mere'
       )
     );
   }
