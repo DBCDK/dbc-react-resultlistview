@@ -64,7 +64,11 @@ var BibliographicData = _react2['default'].createClass({
     return _react2['default'].createElement(
       'div',
       { id: workid, 'data-work-id': identifiers[0], className: 'work small-6 medium-4 large-3' },
-      _react2['default'].createElement(_DisplayCoverImageDisplayCoverImageComponentJs2['default'], this.props),
+      _react2['default'].createElement(
+        'a',
+        { className: 'image-see-work', href: worklink },
+        _react2['default'].createElement(_DisplayCoverImageDisplayCoverImageComponentJs2['default'], this.props)
+      ),
       _react2['default'].createElement('i', { className: icon.join(' ') }),
       _react2['default'].createElement(
         'div',
