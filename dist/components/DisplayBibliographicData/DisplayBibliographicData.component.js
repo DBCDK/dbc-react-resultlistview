@@ -18,7 +18,9 @@ var _DisplayCoverImageDisplayCoverImageComponentJs2 = _interopRequireDefault(_Di
  */
 
 function _getIcon(worktype) {
+
   var icon = new Array('fa');
+  
   switch (worktype) {
     case 'book':
       icon.push('fa-book');
@@ -60,7 +62,7 @@ var BibliographicData = _react2['default'].createClass({
 
     var icon = _getIcon(workType);
     var workid = 'id-' + identifiers[0];
-    var worklink = '/work?pid=' + identifiers[0];
+    var worklink = '/work?id=' + identifiers[0];
     return _react2['default'].createElement(
       'div',
       { id: workid, 'data-work-id': identifiers[0], className: 'work small-6 medium-4 large-3' },

@@ -7,7 +7,9 @@ import CoverImage from './../DisplayCoverImage/DisplayCoverImage.component.js';
  */
 
 function _getIcon(worktype) {
+
   let icon = new Array('fa');
+  
   switch (worktype) {
     case 'book':
       icon.push('fa-book');
