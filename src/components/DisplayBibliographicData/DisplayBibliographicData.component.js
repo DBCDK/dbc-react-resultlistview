@@ -9,7 +9,7 @@ import CoverImage from './../DisplayCoverImage/DisplayCoverImage.component.js';
 function _getIcon(worktype) {
 
   let icon = new Array('fa');
-  
+
   switch (worktype) {
     case 'book':
       icon.push('fa-book');
@@ -38,12 +38,12 @@ function _getIcon(worktype) {
 const BibliographicData = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
+    creator: React.PropTypes.string,
     identifiers: React.PropTypes.array.isRequired,
     workType: React.PropTypes.string,
-    cover: React.PropTypes.number
   },
   render() {
-    const {title, workType, identifiers} = this.props;
+    const {title, creator, workType, identifiers} = this.props;
     let icon = _getIcon(workType);
     const workid = 'id-' + identifiers[0];
     const worklink = '/work?id=' + identifiers[0];
@@ -52,7 +52,7 @@ const BibliographicData = React.createClass({
         <a className="image-see-work" href={worklink}><CoverImage {...this.props} /></a>
         <i className={icon.join(' ')}></i>
           <div className="title">{title}</div>
-          <a className="see-work" href={worklink}>Se mere</a>
+          <div className="creator">{creator}</div>
       </div>);
   }
 });

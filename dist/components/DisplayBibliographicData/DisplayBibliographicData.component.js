@@ -20,7 +20,7 @@ var _DisplayCoverImageDisplayCoverImageComponentJs2 = _interopRequireDefault(_Di
 function _getIcon(worktype) {
 
   var icon = new Array('fa');
-  
+
   switch (worktype) {
     case 'book':
       icon.push('fa-book');
@@ -50,13 +50,14 @@ var BibliographicData = _react2['default'].createClass({
 
   propTypes: {
     title: _react2['default'].PropTypes.string,
+    creator: _react2['default'].PropTypes.string,
     identifiers: _react2['default'].PropTypes.array.isRequired,
-    workType: _react2['default'].PropTypes.string,
-    cover: _react2['default'].PropTypes.number
+    workType: _react2['default'].PropTypes.string
   },
   render: function render() {
     var _props = this.props;
     var title = _props.title;
+    var creator = _props.creator;
     var workType = _props.workType;
     var identifiers = _props.identifiers;
 
@@ -78,9 +79,9 @@ var BibliographicData = _react2['default'].createClass({
         title
       ),
       _react2['default'].createElement(
-        'a',
-        { className: 'see-work', href: worklink },
-        'Se mere'
+        'div',
+        { className: 'creator' },
+        creator
       )
     );
   }
