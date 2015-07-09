@@ -28,7 +28,7 @@ var WorkRow = _react2['default'].createClass({
 
     var workElement = this.props.work.map(function (work, i) {
       var covers = _this.props.coverImages.get(work.identifiers[0]);
-      return _react2['default'].createElement(_DisplayBibliographicDataDisplayBibliographicDataComponentJs2['default'], { key: i, title: work.title, identifiers: work.identifiers, workType: work.workType, cover: covers });
+      return _react2['default'].createElement(_DisplayBibliographicDataDisplayBibliographicDataComponentJs2['default'], { key: i, title: work.title, creator: work.creator, identifiers: work.identifiers, workType: work.workType, cover: covers });
     });
     return _react2['default'].createElement(
       'div',

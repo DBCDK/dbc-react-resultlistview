@@ -13,7 +13,7 @@ const WorkRow = React.createClass({
   render() {
     const workElement = this.props.work.map((work, i) => {
       let covers = this.props.coverImages.get(work.identifiers[0]);
-      return (<BibliographicData key={i} title={work.title} identifiers={work.identifiers} workType={work.workType} cover={covers} />);
+      return (<BibliographicData key={i} title={work.title} creator={work.creator} identifiers={work.identifiers} workType={work.workType} cover={covers} />);
     });
     return (
       <div className="row">
