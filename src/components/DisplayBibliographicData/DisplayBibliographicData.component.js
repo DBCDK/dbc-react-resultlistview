@@ -40,7 +40,7 @@ const BibliographicData = React.createClass({
     title: React.PropTypes.string,
     creator: React.PropTypes.string,
     identifiers: React.PropTypes.array.isRequired,
-    workType: React.PropTypes.string,
+    workType: React.PropTypes.string
   },
   render() {
     const {title, creator, workType, identifiers} = this.props;
