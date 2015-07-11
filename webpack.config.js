@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Config file for webpack
  */
@@ -22,7 +24,7 @@ var definePlugin = new webpack.DefinePlugin({
  *
  * @type {ExtractTextPlugin|exports|module.exports}
  */
-var extractCss = new extractTextPlugin('style.css')
+var extractCss = new extractTextPlugin('style.css');
 
 
 /**
@@ -32,10 +34,10 @@ var extractCss = new extractTextPlugin('style.css')
  */
 module.exports = {
   entry: {
-    app: __dirname + '/examples/app.js'
+    app: path.join(__dirname, '/examples/app.js')
   },
   output: {
-    path: __dirname + '/examples/public',
+    path: path.join(__dirname, '/examples/public'),
     filename: 'bundle.js'
   },
   module: {
