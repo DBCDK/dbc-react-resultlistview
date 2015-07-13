@@ -4,6 +4,7 @@
   "description": "List view presentation of search result.",
   "main": "dist/index.js",
   "scripts": {
+    "build": "babel ./src -d dist",
     "test": "karma start --single-run=true",
     "test:watch": "karma start",
     "lint:checkstyle": "eslint ./  -o report.xml -f checkstyle",
