@@ -7,7 +7,7 @@ import BibliographicData from '../DisplayBibliographicData.component.js';
 
 describe('Test DisplayBibliographicData Component', () => {
   it('Assert correct rendering of BibliographicData component', function() {
-    let rendered = TestUtils.renderIntoDocument(<BibliographicData title={"This is a test"} identifiers={['870970-basis:12345678']} worktype={"book"} cover={-1}/>);
+    let rendered = TestUtils.renderIntoDocument(<BibliographicData title={"This is a test"} identifiers={['870970-basis:12345678']} worktype={"book"} cover={{images: []}}/>);
 
     assert.equal(rendered.props.title, 'This is a test');
     assert.equal(rendered.props.identifiers[0], '870970-basis:12345678');

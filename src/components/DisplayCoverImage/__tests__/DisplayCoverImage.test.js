@@ -7,7 +7,7 @@ import DisplayCoverImage from '../DisplayCoverImage.component.js';
 
 describe('Test DisplayCoverImage Component', () => {
   it('Assert correct rendering of DisplayCoverImage component no cover', function() {
-    let rendered = TestUtils.renderIntoDocument(<DisplayCoverImage title={"This is a test"} identifiers={['870970-basis:12345678']} worktype={"book"} cover={-1}/>);
+    let rendered = TestUtils.renderIntoDocument(<DisplayCoverImage title={"This is a test"} identifiers={['870970-basis:12345678']} worktype={"book"} noCoverImage={"test"}/>);
 
     assert.equal(rendered.props.title, 'This is a test');
     assert.equal(rendered.props.identifiers[0], '870970-basis:12345678');
@@ -22,11 +22,11 @@ describe('Test DisplayCoverImage Component', () => {
 
   it('Assert correct rendering of DisplayCoverImage component with cover', function() {
     let rendered = TestUtils.renderIntoDocument(<DisplayCoverImage title={"This is a test"} identifiers={['870970-basis:12345678', '870970-basis:87654321']}
-			worktype={"book"} cover={0}/>);
+			worktype={"book"} cover={{images: []}}/>);
 
     let coverImage = React.findDOMNode(rendered);
 
-    expect(coverImage.children[0].getAttributeNode('src').value).to.contain('../src/static/covers/12345678.jpg');
+    expect(coverImage.children[0].getAttributeNode('src').value).to.contain('/covers/no-cover-image-undefined.png');
   });
 
   it('Assert empty when no data provided', function() {

@@ -7,7 +7,7 @@
     "test": "karma start --single-run=true",
     "test:watch": "karma start",
     "lint:checkstyle": "eslint ./  -o report.xml -f checkstyle",
-    "lint": "eslint ./src",
+    "lint": "eslint .",
     "watch:babel": "babel ./src --watch -d dist",
     "watch:bundle": "webpack --progress --colors --watch -d"
   },
