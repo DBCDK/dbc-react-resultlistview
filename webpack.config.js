@@ -14,8 +14,8 @@ var extractTextPlugin = require('extract-text-webpack-plugin');
  * @type {webpack.DefinePlugin}
  */
 var definePlugin = new webpack.DefinePlugin({
-  __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
-  __PRERELEASE__: JSON.stringify(JSON.parse(process.env.BUILD_PRERELEASE || 'false'))
+  __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')), // eslint-disable-line no-process-env
+  __PRERELEASE__: JSON.stringify(JSON.parse(process.env.BUILD_PRERELEASE || 'false')) // eslint-disable-line no-process-env
 });
 
 
