@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Config file for webpack
  */
@@ -12,8 +14,8 @@ var extractTextPlugin = require('extract-text-webpack-plugin');
  * @type {webpack.DefinePlugin}
  */
 var definePlugin = new webpack.DefinePlugin({
-  __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')),
-  __PRERELEASE__: JSON.stringify(JSON.parse(process.env.BUILD_PRERELEASE || 'false'))
+  __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'true')), // eslint-disable-line no-process-env
+  __PRERELEASE__: JSON.stringify(JSON.parse(process.env.BUILD_PRERELEASE || 'false')) // eslint-disable-line no-process-env
 });
 
 
@@ -22,7 +24,7 @@ var definePlugin = new webpack.DefinePlugin({
  *
  * @type {ExtractTextPlugin|exports|module.exports}
  */
-var extractCss = new extractTextPlugin('style.css')
+var extractCss = new extractTextPlugin('style.css');
 
 
 /**
@@ -32,10 +34,10 @@ var extractCss = new extractTextPlugin('style.css')
  */
 module.exports = {
   entry: {
-    app: __dirname + '/examples/app.js'
+    app: path.join(__dirname, '/examples/app.js')
   },
   output: {
-    path: __dirname + '/examples/public',
+    path: path.join(__dirname, '/examples/public'),
     filename: 'bundle.js'
   },
   module: {

@@ -40,7 +40,7 @@ const BibliographicData = React.createClass({
     title: React.PropTypes.string,
     creator: React.PropTypes.string,
     identifiers: React.PropTypes.array.isRequired,
-    workType: React.PropTypes.string,
+    workType: React.PropTypes.string
   },
   render() {
     const {title, creator, workType, identifiers} = this.props;
@@ -49,10 +49,11 @@ const BibliographicData = React.createClass({
     const worklink = '/work?id=' + identifiers[0];
     return (
       <div id={workid} data-work-id={identifiers[0]} className="work small-6 medium-4 large-3">
-        <a className="image-see-work" href={worklink}><CoverImage {...this.props} /></a>
-        <i className={icon.join(' ')}></i>
+        <a className="image-see-work" href={worklink}><CoverImage {...this.props} />
+          <i className={icon.join(' ')}></i>
           <div className="title">{title}</div>
           <div className="creator">{creator}</div>
+        </a>
       </div>);
   }
 });

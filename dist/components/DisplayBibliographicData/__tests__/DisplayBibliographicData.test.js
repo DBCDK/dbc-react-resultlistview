@@ -16,7 +16,7 @@ var TestUtils = _reactAddons2['default'].addons.TestUtils;
 
 describe('Test DisplayBibliographicData Component', function () {
   it('Assert correct rendering of BibliographicData component', function () {
-    var rendered = TestUtils.renderIntoDocument(_reactAddons2['default'].createElement(_DisplayBibliographicDataComponentJs2['default'], { title: 'This is a test', identifiers: ['870970-basis:12345678'], worktype: 'book', cover: -1 }));
+    var rendered = TestUtils.renderIntoDocument(_reactAddons2['default'].createElement(_DisplayBibliographicDataComponentJs2['default'], { title: 'This is a test', identifiers: ['870970-basis:12345678'], worktype: 'book', cover: { images: [] } }));
 
     _chai.assert.equal(rendered.props.title, 'This is a test');
     _chai.assert.equal(rendered.props.identifiers[0], '870970-basis:12345678');

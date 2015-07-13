@@ -70,18 +70,18 @@ var BibliographicData = _react2['default'].createClass({
       _react2['default'].createElement(
         'a',
         { className: 'image-see-work', href: worklink },
-        _react2['default'].createElement(_DisplayCoverImageDisplayCoverImageComponentJs2['default'], this.props)
-      ),
-      _react2['default'].createElement('i', { className: icon.join(' ') }),
-      _react2['default'].createElement(
-        'div',
-        { className: 'title' },
-        title
-      ),
-      _react2['default'].createElement(
-        'div',
-        { className: 'creator' },
-        creator
+        _react2['default'].createElement(_DisplayCoverImageDisplayCoverImageComponentJs2['default'], this.props),
+        _react2['default'].createElement('i', { className: icon.join(' ') }),
+        _react2['default'].createElement(
+          'div',
+          { className: 'title' },
+          title
+        ),
+        _react2['default'].createElement(
+          'div',
+          { className: 'creator' },
+          creator
+        )
       )
     );
   }
