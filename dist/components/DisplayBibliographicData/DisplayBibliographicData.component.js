@@ -40,6 +40,9 @@ function _getIcon(worktype) {
     case 'music':
       icon.push('fa-music');
       break;
+    case 'periodica':
+      icon.push('fa-newspaper-o');
+      break;
     default:
       icon.push('fa-question');
       break;
