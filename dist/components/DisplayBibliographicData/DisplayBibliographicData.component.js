@@ -22,6 +22,9 @@ function _getIcon(worktype) {
   var icon = new Array('fa');
 
   switch (worktype) {
+    case 'article':
+      icon.push('fa-file-text');
+      break;
     case 'book':
       icon.push('fa-book');
       break;
