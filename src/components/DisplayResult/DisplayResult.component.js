@@ -12,20 +12,23 @@ function isClient() {
   return (typeof window !== 'undefined');
 }
 
-function _getNumberOfRows(windowWidth) {
-  let rows = 2;
+function _getNumberOfRows(windowWidth, noOfWorks) {
+  let rows = noOfWorks;
   if (windowWidth < 604) {
-    rows = 2;
-  } else if (windowWidth < 1024) {
-    rows = 3;
+    rows = rows;
+  } else if (windowWidth < 1025) {
+    rows += 1;
   } else {
-    rows = 4;
+    rows += 2;
+    if (noOfWorks === 3) {
+      rows += 3;
+    }
   }
   return rows;
 }
 
-function getWorksInRow(windowWidth, works) {
-  const worksInRows = _getNumberOfRows(windowWidth);
+function getWorksInRow(windowWidth, works, noOfWorks) {
+  const worksInRows = _getNumberOfRows(windowWidth, noOfWorks);
   return chunk(works, worksInRows);
 }
 
@@ -53,15 +56,16 @@ const ResultDisplay = React.createClass({
   propTypes: {
     result: React.PropTypes.array,
     coverImages: React.PropTypes.object,
+    noOfWorks: React.PropTypes.number,
     hasMore: React.PropTypes.bool,
     loadMore: React.PropTypes.func
   },
   render() {
-    const {loader, pending, result, hasMore, loadMore, coverImages} = this.props;
-    const rows = getWorksInRow(this.state.windowWidth, result);
+    const {loader, pending, result, hasMore, loadMore, coverImages, noOfWorks} = this.props;
+    const rows = getWorksInRow(this.state.windowWidth, result, noOfWorks);
     const loadMoreButton = (hasMore && !pending) && <LoadMore button={'Se flere'} update={loadMore} />;
     const workRow = rows.map((work, i) => {
-      return (<WorkRow key={i} work={work} coverImages={coverImages} />);
+      return (<WorkRow key={i} work={work} coverImages={coverImages} noOfWorks={noOfWorks}/>);
     });
     return (
       <div className='container'>
