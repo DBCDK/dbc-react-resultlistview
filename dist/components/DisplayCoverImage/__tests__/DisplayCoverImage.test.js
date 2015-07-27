@@ -16,7 +16,7 @@ var TestUtils = _reactAddons2['default'].addons.TestUtils;
 
 describe('Test DisplayCoverImage Component', function () {
   it('Assert correct rendering of DisplayCoverImage component no cover', function () {
-    var rendered = TestUtils.renderIntoDocument(_reactAddons2['default'].createElement(_DisplayCoverImageComponentJs2['default'], { title: 'This is a test', identifiers: ['870970-basis:12345678'], worktype: 'book', noCoverImage: 'test' }));
+    var rendered = TestUtils.renderIntoDocument(_reactAddons2['default'].createElement(_DisplayCoverImageComponentJs2['default'], { title: "This is a test", identifiers: ['870970-basis:12345678'], worktype: "book", noCoverImage: "test" }));
 
     _chai.assert.equal(rendered.props.title, 'This is a test');
     _chai.assert.equal(rendered.props.identifiers[0], '870970-basis:12345678');
@@ -29,8 +29,8 @@ describe('Test DisplayCoverImage Component', function () {
   });
 
   it('Assert correct rendering of DisplayCoverImage component with cover', function () {
-    var rendered = TestUtils.renderIntoDocument(_reactAddons2['default'].createElement(_DisplayCoverImageComponentJs2['default'], { title: 'This is a test', identifiers: ['870970-basis:12345678', '870970-basis:87654321'],
-      worktype: 'book', cover: { images: [] } }));
+    var rendered = TestUtils.renderIntoDocument(_reactAddons2['default'].createElement(_DisplayCoverImageComponentJs2['default'], { title: "This is a test", identifiers: ['870970-basis:12345678', '870970-basis:87654321'],
+      worktype: "book", cover: { images: [] } }));
 
     var coverImage = _reactAddons2['default'].findDOMNode(rendered);
 

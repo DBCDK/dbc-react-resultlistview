@@ -7,8 +7,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 
 var _react = require('react');
 
-var _react2 = _interopRequireDefault(_react);
-
 /**
  * Get image with size
  *
@@ -19,6 +17,9 @@ var _react2 = _interopRequireDefault(_react);
  * @returns {string}
  * @private
  */
+
+var _react2 = _interopRequireDefault(_react);
+
 function _getImage(images, size) {
   return images.filter(function (image) {
     return image.size === size;
@@ -54,7 +55,7 @@ exports['default'] = _react2['default'].createClass({
     }
     return _react2['default'].createElement(
       'div',
-      { className: 'cover-image' },
+      { className: "cover-image" },
       _react2['default'].createElement('img', { src: url, alt: title })
     );
   }

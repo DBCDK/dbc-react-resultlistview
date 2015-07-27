@@ -49,12 +49,19 @@ const BibliographicData = React.createClass({
     workType: React.PropTypes.string
   },
   render() {
-    const {title, creator, workType, identifiers} = this.props;
+    const {title, creator, workType, identifiers, noOfWorks} = this.props;
     let icon = _getIcon(workType);
     const workid = 'id-' + identifiers[0];
     const worklink = '/work?id=' + identifiers[0];
+    let classes = 'work small-6 medium-4 large-3';
+    if (noOfWorks === 1) {
+      classes = 'work small-12 medium-6 large-4';
+    }
+    if (noOfWorks === 3) {
+      classes = 'work small-4 medium-3 large-2';
+    }
     return (
-      <div id={workid} data-work-id={identifiers[0]} className="work small-6 medium-4 large-3">
+      <div id={workid} data-work-id={identifiers[0]} className={classes}>
         <a className="image-see-work" href={worklink}><CoverImage {...this.props} />
           <i className={icon.join(' ')}></i>
           <div className="title">{title}</div>

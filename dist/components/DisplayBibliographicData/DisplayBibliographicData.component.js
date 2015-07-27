@@ -11,11 +11,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _DisplayCoverImageDisplayCoverImageComponentJs = require('./../DisplayCoverImage/DisplayCoverImage.component.js');
 
-var _DisplayCoverImageDisplayCoverImageComponentJs2 = _interopRequireDefault(_DisplayCoverImageDisplayCoverImageComponentJs);
-
 /**
  * Component for creating presentation of bibliographic data
  */
+
+var _DisplayCoverImageDisplayCoverImageComponentJs2 = _interopRequireDefault(_DisplayCoverImageDisplayCoverImageComponentJs);
 
 function _getIcon(worktype) {
 
@@ -66,26 +66,34 @@ var BibliographicData = _react2['default'].createClass({
     var creator = _props.creator;
     var workType = _props.workType;
     var identifiers = _props.identifiers;
+    var noOfWorks = _props.noOfWorks;
 
     var icon = _getIcon(workType);
     var workid = 'id-' + identifiers[0];
     var worklink = '/work?id=' + identifiers[0];
+    var classes = 'work small-6 medium-4 large-3';
+    if (noOfWorks === 1) {
+      classes = 'work small-12 medium-6 large-4';
+    }
+    if (noOfWorks === 3) {
+      classes = 'work small-4 medium-3 large-2';
+    }
     return _react2['default'].createElement(
       'div',
-      { id: workid, 'data-work-id': identifiers[0], className: 'work small-6 medium-4 large-3' },
+      { id: workid, 'data-work-id': identifiers[0], className: classes },
       _react2['default'].createElement(
         'a',
-        { className: 'image-see-work', href: worklink },
+        { className: "image-see-work", href: worklink },
         _react2['default'].createElement(_DisplayCoverImageDisplayCoverImageComponentJs2['default'], this.props),
         _react2['default'].createElement('i', { className: icon.join(' ') }),
         _react2['default'].createElement(
           'div',
-          { className: 'title' },
+          { className: "title" },
           title
         ),
         _react2['default'].createElement(
           'div',
-          { className: 'creator' },
+          { className: "creator" },
           creator
         )
       )

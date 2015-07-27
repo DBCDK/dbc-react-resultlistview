@@ -17,30 +17,34 @@ var _DisplayWorkRowDisplayWorkRowComponentJs2 = _interopRequireDefault(_DisplayW
 
 var _LoadMoreComponentJs = require('./LoadMore.component.js');
 
-var _LoadMoreComponentJs2 = _interopRequireDefault(_LoadMoreComponentJs);
-
 /**
  * Method that checks of component is being rendered on server or client
  * @returns {boolean}
  */
+
+var _LoadMoreComponentJs2 = _interopRequireDefault(_LoadMoreComponentJs);
+
 function isClient() {
   return typeof window !== 'undefined';
 }
 
-function _getNumberOfRows(windowWidth) {
-  var rows = 2;
+function _getNumberOfRows(windowWidth, noOfWorks) {
+  var rows = noOfWorks;
   if (windowWidth < 604) {
-    rows = 2;
-  } else if (windowWidth < 1024) {
-    rows = 3;
+    rows = rows;
+  } else if (windowWidth < 1025) {
+    rows += 1;
   } else {
-    rows = 4;
+    rows += 2;
+    if (noOfWorks === 3) {
+      rows += 3;
+    }
   }
   return rows;
 }
 
-function getWorksInRow(windowWidth, works) {
-  var worksInRows = _getNumberOfRows(windowWidth);
+function getWorksInRow(windowWidth, works, noOfWorks) {
+  var worksInRows = _getNumberOfRows(windowWidth, noOfWorks);
   return (0, _lodash.chunk)(works, worksInRows);
 }
 
@@ -69,6 +73,7 @@ var ResultDisplay = _react2['default'].createClass({
   propTypes: {
     result: _react2['default'].PropTypes.array,
     coverImages: _react2['default'].PropTypes.object,
+    noOfWorks: _react2['default'].PropTypes.number,
     hasMore: _react2['default'].PropTypes.bool,
     loadMore: _react2['default'].PropTypes.func
   },
@@ -80,11 +85,12 @@ var ResultDisplay = _react2['default'].createClass({
     var hasMore = _props.hasMore;
     var loadMore = _props.loadMore;
     var coverImages = _props.coverImages;
+    var noOfWorks = _props.noOfWorks;
 
-    var rows = getWorksInRow(this.state.windowWidth, result);
+    var rows = getWorksInRow(this.state.windowWidth, result, noOfWorks);
     var loadMoreButton = hasMore && !pending && _react2['default'].createElement(_LoadMoreComponentJs2['default'], { button: 'Se flere', update: loadMore });
     var workRow = rows.map(function (work, i) {
-      return _react2['default'].createElement(_DisplayWorkRowDisplayWorkRowComponentJs2['default'], { key: i, work: work, coverImages: coverImages });
+      return _react2['default'].createElement(_DisplayWorkRowDisplayWorkRowComponentJs2['default'], { key: i, work: work, coverImages: coverImages, noOfWorks: noOfWorks });
     });
     return _react2['default'].createElement(
       'div',
