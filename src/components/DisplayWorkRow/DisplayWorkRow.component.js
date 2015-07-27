@@ -8,12 +8,14 @@ import BibliographicData from './../DisplayBibliographicData/DisplayBibliographi
 const WorkRow = React.createClass({
   propTypes: {
     work: React.PropTypes.array.isRequired,
-    coverImages: React.PropTypes.object
+    coverImages: React.PropTypes.object,
+    numRows: React.PropTypes.string
   },
   render() {
     const workElement = this.props.work.map((work, i) => {
       let covers = this.props.coverImages.get(work.identifiers[0]);
-      return (<BibliographicData key={i} title={work.title} creator={work.creator} identifiers={work.identifiers} workType={work.workType} cover={covers} />);
+      let noOfWorks = this.props.noOfWorks;
+      return (<BibliographicData key={i} title={work.title} creator={work.creator} identifiers={work.identifiers} workType={work.workType} cover={covers} noOfWorks={noOfWorks} />);
     });
     return (
       <div className="row">
