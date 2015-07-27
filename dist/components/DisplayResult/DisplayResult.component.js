@@ -36,9 +36,9 @@ function _getNumberOfRows(windowWidth, noOfWorks) {
     rows += 1;
   } else {
     rows += 2;
-    if (noOfWorks === 3) {
-      rows += 3;
-    }
+  }
+  if (noOfWorks === 3) {
+    rows = 6;
   }
   return rows;
 }
