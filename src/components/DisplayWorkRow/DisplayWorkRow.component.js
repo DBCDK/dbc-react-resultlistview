@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-import BibliographicData from './../DisplayBibliographicData/DisplayBibliographicData.component.js';
+import BibliographicData from './../DisplayBibliographicData/DisplayBibliographicData.component.js'; // eslint-disable-line no-unused-vars
 
 /**
 * Component for creating presentation a row of works

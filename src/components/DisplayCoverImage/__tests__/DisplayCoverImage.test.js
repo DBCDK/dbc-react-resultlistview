@@ -3,7 +3,7 @@ import React from 'react/addons';
 let TestUtils = React.addons.TestUtils;
 
 import {expect, assert} from 'chai';
-import DisplayCoverImage from '../DisplayCoverImage.component.js';
+import DisplayCoverImage from '../DisplayCoverImage.component.js'; // eslint-disable-line no-unused-vars
 
 describe('Test DisplayCoverImage Component', () => {
   it('Assert correct rendering of DisplayCoverImage component no cover', function() {

@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-import CoverImage from './../DisplayCoverImage/DisplayCoverImage.component.js';
+import CoverImage from './../DisplayCoverImage/DisplayCoverImage.component.js'; // eslint-disable-line no-unused-vars
 
 /**
  * Component for creating presentation of bibliographic data

@@ -1,4 +1,7 @@
 'use strict';
+
+/* eslint-disable */
+
 import React from 'react/addons';
 let TestUtils = React.addons.TestUtils;
 

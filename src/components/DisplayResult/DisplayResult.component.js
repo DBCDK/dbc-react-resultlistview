@@ -1,8 +1,8 @@
 'use strict';
 import React from 'react';
 import {chunk} from 'lodash';
-import WorkRow from './../DisplayWorkRow/DisplayWorkRow.component.js';
-import LoadMore from './LoadMore.component.js';
+import WorkRow from './../DisplayWorkRow/DisplayWorkRow.component.js'; // eslint-disable-line no-unused-vars
+import LoadMore from './LoadMore.component.js'; // eslint-disable-line no-unused-vars
 
 /**
  * Method that checks of component is being rendered on server or client
