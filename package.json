@@ -6,6 +6,7 @@
   "scripts": {
     "build": "babel ./src -d dist",
     "test": "karma start --single-run=true",
+    "test:junit": "npm run test",
     "test:watch": "karma start",
     "lint:checkstyle": "eslint ./src  -o report.xml -f checkstyle",
     "lint": "eslint ./src",
