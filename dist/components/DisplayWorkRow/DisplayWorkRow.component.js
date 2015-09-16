@@ -11,12 +11,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _DisplayBibliographicDataDisplayBibliographicDataComponentJs = require('./../DisplayBibliographicData/DisplayBibliographicData.component.js');
 
+var _DisplayBibliographicDataDisplayBibliographicDataComponentJs2 = _interopRequireDefault(_DisplayBibliographicDataDisplayBibliographicDataComponentJs);
+
+// eslint-disable-line no-unused-vars
+
 /**
 * Component for creating presentation a row of works
 */
-
-var _DisplayBibliographicDataDisplayBibliographicDataComponentJs2 = _interopRequireDefault(_DisplayBibliographicDataDisplayBibliographicDataComponentJs);
-
 var WorkRow = _react2['default'].createClass({
   displayName: 'WorkRow',
 
@@ -35,7 +36,7 @@ var WorkRow = _react2['default'].createClass({
     });
     return _react2['default'].createElement(
       'div',
-      { className: "row" },
+      { className: 'row' },
       workElement
     );
   }

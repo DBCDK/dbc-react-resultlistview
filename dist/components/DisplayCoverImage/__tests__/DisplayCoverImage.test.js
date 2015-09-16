@@ -12,6 +12,8 @@ var _DisplayCoverImageComponentJs = require('../DisplayCoverImage.component.js')
 
 var _DisplayCoverImageComponentJs2 = _interopRequireDefault(_DisplayCoverImageComponentJs);
 
+// eslint-disable-line no-unused-vars
+
 var TestUtils = _reactAddons2['default'].addons.TestUtils;
 
 describe('Test DisplayCoverImage Component', function () {

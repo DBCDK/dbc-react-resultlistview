@@ -15,15 +15,18 @@ var _DisplayWorkRowDisplayWorkRowComponentJs = require('./../DisplayWorkRow/Disp
 
 var _DisplayWorkRowDisplayWorkRowComponentJs2 = _interopRequireDefault(_DisplayWorkRowDisplayWorkRowComponentJs);
 
+// eslint-disable-line no-unused-vars
+
 var _LoadMoreComponentJs = require('./LoadMore.component.js');
+
+var _LoadMoreComponentJs2 = _interopRequireDefault(_LoadMoreComponentJs);
+
+// eslint-disable-line no-unused-vars
 
 /**
  * Method that checks of component is being rendered on server or client
  * @returns {boolean}
  */
-
-var _LoadMoreComponentJs2 = _interopRequireDefault(_LoadMoreComponentJs);
-
 function isClient() {
   return typeof window !== 'undefined';
 }
@@ -57,19 +60,23 @@ var ResultDisplay = _react2['default'].createClass({
   getInitialState: function getInitialState() {
     return { windowWidth: isClient() && window.innerWidth };
   },
+
   handleResize: function handleResize() {
     this.setState({ windowWidth: isClient() && window.innerWidth });
   },
+
   componentDidMount: function componentDidMount() {
     if (isClient()) {
       window.addEventListener('resize', this.handleResize);
     }
   },
+
   componentWillUnmount: function componentWillUnmount() {
     if (isClient()) {
       window.removeEventListener('resize', this.handleResize);
     }
   },
+
   propTypes: {
     result: _react2['default'].PropTypes.array,
     coverImages: _react2['default'].PropTypes.object,
@@ -77,6 +84,7 @@ var ResultDisplay = _react2['default'].createClass({
     hasMore: _react2['default'].PropTypes.bool,
     loadMore: _react2['default'].PropTypes.func
   },
+
   render: function render() {
     var _props = this.props;
     var loader = _props.loader;

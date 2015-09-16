@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable */
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 var _reactAddons = require('react/addons');

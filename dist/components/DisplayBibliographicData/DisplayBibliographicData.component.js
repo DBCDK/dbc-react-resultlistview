@@ -11,11 +11,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _DisplayCoverImageDisplayCoverImageComponentJs = require('./../DisplayCoverImage/DisplayCoverImage.component.js');
 
+var _DisplayCoverImageDisplayCoverImageComponentJs2 = _interopRequireDefault(_DisplayCoverImageDisplayCoverImageComponentJs);
+
+// eslint-disable-line no-unused-vars
+
 /**
  * Component for creating presentation of bibliographic data
  */
-
-var _DisplayCoverImageDisplayCoverImageComponentJs2 = _interopRequireDefault(_DisplayCoverImageDisplayCoverImageComponentJs);
 
 function _getIcon(worktype) {
 
@@ -83,17 +85,17 @@ var BibliographicData = _react2['default'].createClass({
       { id: workid, 'data-work-id': identifiers[0], className: classes },
       _react2['default'].createElement(
         'a',
-        { className: "image-see-work", href: worklink },
+        { className: 'image-see-work', href: worklink },
         _react2['default'].createElement(_DisplayCoverImageDisplayCoverImageComponentJs2['default'], this.props),
         _react2['default'].createElement('i', { className: icon.join(' ') }),
         _react2['default'].createElement(
           'div',
-          { className: "title" },
+          { className: 'title' },
           title
         ),
         _react2['default'].createElement(
           'div',
-          { className: "creator" },
+          { className: 'creator' },
           creator
         )
       )

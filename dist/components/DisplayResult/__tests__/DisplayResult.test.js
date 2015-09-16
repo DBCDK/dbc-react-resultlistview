@@ -12,6 +12,8 @@ var _DisplayResultComponentJs = require('../DisplayResult.component.js');
 
 var _DisplayResultComponentJs2 = _interopRequireDefault(_DisplayResultComponentJs);
 
+// eslint-disable-line no-unused-vars
+
 var TestUtils = _reactAddons2['default'].addons.TestUtils;
 
 describe('Test DisplayResult Component', function () {
