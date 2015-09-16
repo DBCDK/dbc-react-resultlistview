@@ -3,7 +3,7 @@ import React from 'react/addons';
 let TestUtils = React.addons.TestUtils;
 
 import {expect} from 'chai';
-import ResultDisplay from '../DisplayResult.component.js';
+import ResultDisplay from '../DisplayResult.component.js'; // eslint-disable-line no-unused-vars
 
 describe('Test DisplayResult Component', () => {
   it('Assert correct rendering of ResultDisplay component', function() {
